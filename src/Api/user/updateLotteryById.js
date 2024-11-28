@@ -12,10 +12,7 @@ const updateLotteryById = async (req, res, next) => {
     }
     const { users, remaining, sell, quantity } = req.body;
 
-    console.log(req?.body);
-    console.log(req?.params);
-
-    if (!users || !remaining || !sell || !quantity) {
+    if (!users || !sell ) {
       return res.send({
         status: false,
         message: "Need more data",
