@@ -1,29 +1,23 @@
 const mongoose = require("mongoose");
-const lotterySchema = new mongoose.Schema({
-  title: {
+const myCartSchema = new mongoose.Schema({
+  userId: {
     type: String,
   },
-  image: {
+  wallet: {
     type: String,
   },
-  price: {
-    type: Number,
-  },
-  quantity: {
-    type: Number,
-  },
-  remaining: {
-    type: Number,
-  },
-  sell: {
-    type: Number,
-  },
-  users: {
+  lottery: {
     type: Array,
+  },
+  proProgram: {
+    type: Object,
+  },
+  royaltySalary: {
+    type: Object,
   },
 });
 
-lotterySchema.pre("save", async function (next) {
+myCartSchema.pre("save", async function (next) {
   if (this.isNew && this.password) {
     const saltRounds = 10;
     const hash = await bcrypt.hash(this.password, saltRounds);
@@ -38,6 +32,6 @@ lotterySchema.pre("save", async function (next) {
   next();
 });
 
-const Lottery = mongoose.model("Lottery", lotterySchema);
+const MyCart = mongoose.model("MyCart", myCartSchema);
 
-module.exports = Lottery;
+module.exports = MyCart;
