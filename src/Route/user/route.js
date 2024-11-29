@@ -18,6 +18,10 @@ router.get("/user/data", getUserData);
 // buy lottery
 router.post("/lottery/:userId/:Wallet", buyLottery);
 
+
+// buy Program
+router.post("/lottery/:userId/:Wallet", buyLottery);
+
 // cart data
 router.get("/myCartData/:userId/:Wallet", getMyCardData);
 
