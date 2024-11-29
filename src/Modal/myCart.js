@@ -10,7 +10,7 @@ const myCartSchema = new mongoose.Schema({
     type: Array,
   },
   proProgram: {
-    type: Object,
+    type: Array,
   },
   royaltySalary: {
     type: Object,
