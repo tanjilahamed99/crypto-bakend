@@ -30,4 +30,8 @@ router.put("/buyLottery/:id", updateLotteryById);
 router.post("/buyProgram/:id", buyProgram);
 router.get("/proProgram/:type", getProgramDataByType);
 
+
+// royalty sallery
+
+
 module.exports = router;
