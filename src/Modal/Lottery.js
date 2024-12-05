@@ -21,6 +21,9 @@ const lotterySchema = new mongoose.Schema({
   users: {
     type: Array,
   },
+  winners: {
+    type: Array,
+  },
 });
 
 lotterySchema.pre("save", async function (next) {
