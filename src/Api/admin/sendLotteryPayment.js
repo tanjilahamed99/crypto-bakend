@@ -1,8 +1,9 @@
 const Lottery = require("../../Modal/Lottery");
 const User = require("../../Modal/Users");
 
-const setLotteryWinners = async (req, res) => {
+const sendLotteryPayment = async (req, res) => {
   const { adminEmail, adminId, wallet, id } = req?.params;
+  console.log(req?.params);
   if (!adminEmail || !adminId || !wallet) {
     return res.send({
       status: false,
@@ -42,4 +43,4 @@ const setLotteryWinners = async (req, res) => {
   }
 };
 
-module.exports = setLotteryWinners;
+module.exports = sendLotteryPayment;

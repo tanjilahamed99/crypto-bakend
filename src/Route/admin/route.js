@@ -14,6 +14,7 @@ const getSingleGamingNft = require("../../Api/admin/getSingleGamingNft");
 const getSingleLotteryData = require("../../Api/admin/getSingleLotteryData");
 const getSingleProgramData = require("../../Api/admin/getSingleProgram");
 const getWebsiteData = require("../../Api/admin/getWebsiteData");
+const sendLotteryPayment = require("../../Api/admin/sendLotteryPayment");
 const setLotteryWinners = require("../../Api/admin/setLotteryWinners");
 const updateGamingNft = require("../../Api/admin/updateGamingNft");
 const updateLottery = require("../../Api/admin/updateLottery");
@@ -47,6 +48,10 @@ router.post(
 );
 // draw lottery
 router.get("/admin/lotteryDraw/:adminId/:adminEmail/:wallet/:id", drawLottery);
+router.get(
+  "/admin/sendLotteryPayment/:adminId/:adminEmail/:wallet/:id",
+  sendLotteryPayment
+);
 
 // gamingNft
 // get gamingNft
