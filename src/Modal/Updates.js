@@ -1,26 +1,17 @@
 const mongoose = require("mongoose");
-const proProgramSchema = new mongoose.Schema({
-  users: {
-    type: Array,
-  },
-  price: {
-    type: Number,
-  },
-  quantity: {
-    type: Number,
-  },
-  programName: {
+const UpdatesSchema = new mongoose.Schema({
+  description: {
     type: String,
   },
-  type: {
+  title: {
     type: String,
   },
-  order: {
-    type: Number,
+  image: {
+    type: String,
   },
 });
 
-proProgramSchema.pre("save", async function (next) {
+UpdatesSchema.pre("save", async function (next) {
   if (this.isNew && this.password) {
     const saltRounds = 10;
     const hash = await bcrypt.hash(this.password, saltRounds);
@@ -35,6 +26,6 @@ proProgramSchema.pre("save", async function (next) {
   next();
 });
 
-const ProProgram = mongoose.model("ProProgram", proProgramSchema);
+const Updates = mongoose.model("Updates", UpdatesSchema);
 
-module.exports = ProProgram;
+module.exports = Updates;

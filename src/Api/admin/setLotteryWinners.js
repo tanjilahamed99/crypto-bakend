@@ -34,6 +34,9 @@ const setLotteryWinners = async (req, res) => {
     const update = {
       winners: req.body,
     };
+
+    console.log(update);
+
     const result = await Lottery.updateOne(query, update);
     console.log(result);
     res.send({ result, status: true });

@@ -2,6 +2,7 @@ const addFaq = require("../../Api/admin/addFaq");
 const addGamingNft = require("../../Api/admin/addGamingNft");
 const addLottery = require("../../Api/admin/AddLottery");
 const addProProgram = require("../../Api/admin/addProProgram");
+const addUpdates = require("../../Api/admin/addUpdates");
 const allUsers = require("../../Api/admin/allUser");
 const deleteGamingNft = require("../../Api/admin/deleteGamingNft");
 const deleteLottery = require("../../Api/admin/deleteLottery");
@@ -13,6 +14,8 @@ const getAllProProgramByType = require("../../Api/admin/getAllProProgramByType")
 const getSingleGamingNft = require("../../Api/admin/getSingleGamingNft");
 const getSingleLotteryData = require("../../Api/admin/getSingleLotteryData");
 const getSingleProgramData = require("../../Api/admin/getSingleProgram");
+const getUserCardsData = require("../../Api/admin/getUserCardsData");
+const getUserData = require("../../Api/admin/getUserData");
 const getWebsiteData = require("../../Api/admin/getWebsiteData");
 const sendLotteryPayment = require("../../Api/admin/sendLotteryPayment");
 const setLotteryWinners = require("../../Api/admin/setLotteryWinners");
@@ -48,7 +51,7 @@ router.post(
 );
 // draw lottery
 router.get("/admin/lotteryDraw/:adminId/:adminEmail/:wallet/:id", drawLottery);
-router.get(
+router.post(
   "/admin/sendLotteryPayment/:adminId/:adminEmail/:wallet/:id",
   sendLotteryPayment
 );
@@ -88,5 +91,15 @@ router.delete(
 );
 // update Pro program
 router.put("/admin/proprogram/:adminId/:adminEmail/:wallet/:id", updateProgram);
+
+// faq data
+router.post("/admin/updates/:adminId/:adminEmail/:wallet", addUpdates);
+
+// get users cards data
+router.get(
+  "/admin/userCarts/:adminId/:adminEmail/:wallet/:id",
+  getUserCardsData
+);
+router.get("/admin/userData/:adminId/:adminEmail/:wallet/:id", getUserData);
 
 module.exports = router;

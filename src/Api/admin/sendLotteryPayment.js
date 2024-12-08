@@ -35,9 +35,11 @@ const sendLotteryPayment = async (req, res) => {
     const update = {
       winners: req.body,
     };
+    
     const result = await Lottery.updateOne(query, update);
-    console.log(result);
-    res.send({ result, status: true });
+
+    res.send({ status: true, result });
+
   } catch (error) {
     res.status(500).json({ error: "Failed to select winners" });
   }

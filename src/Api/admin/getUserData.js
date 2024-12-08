@@ -1,7 +1,7 @@
-const Lottery = require("../../Modal/Lottery");
+const MyCart = require("../../Modal/myCart");
 const User = require("../../Modal/Users");
 
-const drawLottery = async (req, res) => {
+const getUserData = async (req, res) => {
   const { adminEmail, adminId, wallet, id } = req?.params;
   if (!adminEmail || !adminId || !wallet) {
     return res.send({
@@ -28,14 +28,11 @@ const drawLottery = async (req, res) => {
     });
   }
   try {
-    const lottery = await Lottery.findOne({ _id: id });
-    const shuffled = lottery?.users;
-
-    // Optionally mark winners or log them
-    res.send({ winners: shuffled, status: true });
+    const userData = await User.findOne({ _id: id });
+    res.send({ userData, status: true });
   } catch (error) {
     res.status(500).json({ error: "Failed to select winners" });
   }
 };
 
-module.exports = drawLottery;
+module.exports = getUserData;

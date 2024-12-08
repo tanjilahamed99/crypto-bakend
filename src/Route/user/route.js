@@ -6,6 +6,7 @@ const getMyCardData = require("../../Api/user/getMyCardData");
 const updateLotteryById = require("../../Api/user/updateLotteryById");
 const getProgramDataByType = require("../../Api/user/getProgramDataByType");
 const buyProgram = require("../../Api/user/buyProgram");
+const getAllUpdates = require("../../Api/user/getAllUpdates");
 
 const router = require("express").Router();
 
@@ -25,13 +26,13 @@ router.get("/myCartData/:userId/:Wallet", getMyCardData);
 // update lottery data after the lottery ticked buy
 router.put("/buyLottery/:id", updateLotteryById);
 
-
 // buy Program
-router.post("/buyProgram/:id", buyProgram);
+router.put("/buyProgram/:id", buyProgram);
 router.get("/proProgram/:type", getProgramDataByType);
-
 
 // royalty sallery
 
+// all updates
+router.get("/allUpdates", getAllUpdates);
 
 module.exports = router;

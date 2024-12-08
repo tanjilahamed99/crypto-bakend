@@ -1,7 +1,9 @@
-const ProProgram = require("../../Modal/proProgram");
+const Lottery = require("../../Modal/Lottery");
+const Updates = require("../../Modal/Updates");
 const User = require("../../Modal/Users");
+const Website = require("../../Modal/website");
 
-const addProProgram = async (req, res, next) => {
+const addUpdates = async (req, res, next) => {
   try {
     const { adminEmail, adminId, wallet } = req?.params;
 
@@ -23,16 +25,8 @@ const addProProgram = async (req, res, next) => {
       });
     }
 
-    const { price, programName, type, order } = req.body;
+    const result = await Updates.create(req.body);
 
-    if (!type || !programName || !price || !order) {
-      return res.send({
-        status: false,
-        message: "Need more data",
-      });
-    }
-
-    const result = await ProProgram.create(req.body);
     res.send({
       result,
       status: true,
@@ -46,4 +40,4 @@ const addProProgram = async (req, res, next) => {
   }
 };
 
-module.exports = addProProgram;
+module.exports = addUpdates;

@@ -40,8 +40,7 @@ const updateProgram = async (req, res, next) => {
 
     const update = {
       $set: {
-        price,
-        quantity,
+        ...req.body,
       },
     };
 
