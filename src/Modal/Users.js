@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     type: String,
   },
   refers: {
-    type: Number,
+    type: Array,
   },
   username: {
     type: String,

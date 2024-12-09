@@ -10,9 +10,7 @@ const getUserData = async (req,res,next)=>{
         }
     
         let user = await User.findOne({ wallet });
-    
-        console.log(user);
-    
+  
         if (!user) {
           return res.status(404).send({ message: "User not found" });
         }

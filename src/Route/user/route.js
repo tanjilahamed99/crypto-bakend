@@ -7,6 +7,8 @@ const updateLotteryById = require("../../Api/user/updateLotteryById");
 const getProgramDataByType = require("../../Api/user/getProgramDataByType");
 const buyProgram = require("../../Api/user/buyProgram");
 const getAllUpdates = require("../../Api/user/getAllUpdates");
+const getMyRefers = require("../../Api/user/getMyRefers");
+const saveRefer = require("../../Api/user/saveRefer");
 
 const router = require("express").Router();
 
@@ -34,5 +36,9 @@ router.get("/proProgram/:type", getProgramDataByType);
 
 // all updates
 router.get("/allUpdates", getAllUpdates);
+
+router.get("/myRefers/:id", getMyRefers);
+
+router.post("/saveRefer/:referOwner/:referId", saveRefer);
 
 module.exports = router;
