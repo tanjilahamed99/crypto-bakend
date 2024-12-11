@@ -38,6 +38,25 @@ const websiteSchema = new mongoose.Schema({
     },
   ],
   testimonial: [],
+
+  totalEarning: {
+    type: Number,
+  },
+  totalProProgramUsers: {
+    type: Array,
+  },
+  totalDeposit: {
+    type: Array,
+  },
+  totalWithdrawal: {
+    type: Array,
+  },
+  totalDepositCharge: {
+    type: Number,
+  },
+
+  // admin
+  // admin: {},
 });
 
 websiteSchema.pre("save", async function (next) {

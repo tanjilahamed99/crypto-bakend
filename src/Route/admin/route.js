@@ -11,6 +11,7 @@ const drawLottery = require("../../Api/admin/DrawLottery");
 const getAllGamingNft = require("../../Api/admin/getAllGamignNft");
 const getAllLottery = require("../../Api/admin/getAllLottery");
 const getAllProProgramByType = require("../../Api/admin/getAllProProgramByType");
+const getDashboardData = require("../../Api/admin/getDashboardData");
 const getSingleGamingNft = require("../../Api/admin/getSingleGamingNft");
 const getSingleLotteryData = require("../../Api/admin/getSingleLotteryData");
 const getSingleProgramData = require("../../Api/admin/getSingleProgram");
@@ -101,5 +102,11 @@ router.get(
   getUserCardsData
 );
 router.get("/admin/userData/:adminId/:adminEmail/:wallet/:id", getUserData);
+
+// get dashboard data
+router.get(
+  "/admin/dashboardData/:adminId/:adminEmail/:wallet",
+  getDashboardData
+);
 
 module.exports = router;

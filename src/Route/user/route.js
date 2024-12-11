@@ -9,6 +9,7 @@ const buyProgram = require("../../Api/user/buyProgram");
 const getAllUpdates = require("../../Api/user/getAllUpdates");
 const getMyRefers = require("../../Api/user/getMyRefers");
 const saveRefer = require("../../Api/user/saveRefer");
+const saveHistory = require("../../Api/user/saveHistory");
 
 const router = require("express").Router();
 
@@ -40,5 +41,8 @@ router.get("/allUpdates", getAllUpdates);
 router.get("/myRefers/:id", getMyRefers);
 
 router.post("/saveRefer/:referOwner/:referId", saveRefer);
+
+// set all history for show data at home page and admin panel
+router.post("/history", saveHistory);
 
 module.exports = router;
