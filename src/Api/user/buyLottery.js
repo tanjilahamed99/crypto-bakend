@@ -2,7 +2,9 @@ const MyCart = require("../../Modal/myCart");
 
 const buyLottery = async (req, res, next) => {
   try {
-    const { wallet, userId } = req.params || {};
+    const { wallet, userId } = req.params;
+    // console.log(req.params);
+
     // if (!wallet || !userId) {
     //   return res.send({ status: false, message: "need same more information" });
     // }

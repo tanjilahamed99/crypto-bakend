@@ -4,10 +4,13 @@ const addLottery = require("../../Api/admin/AddLottery");
 const addProProgram = require("../../Api/admin/addProProgram");
 const addUpdates = require("../../Api/admin/addUpdates");
 const allUsers = require("../../Api/admin/allUser");
+const createAdmin = require("../../Api/admin/createAdmin");
+const deleteAdmin = require("../../Api/admin/deleteAdmin");
 const deleteGamingNft = require("../../Api/admin/deleteGamingNft");
 const deleteLottery = require("../../Api/admin/deleteLottery");
 const deleteProProgram = require("../../Api/admin/deleteProProgram");
 const drawLottery = require("../../Api/admin/DrawLottery");
+const getAdminInfo = require("../../Api/admin/getAdminInfo");
 const getAllGamingNft = require("../../Api/admin/getAllGamignNft");
 const getAllLottery = require("../../Api/admin/getAllLottery");
 const getAllProProgramByType = require("../../Api/admin/getAllProProgramByType");
@@ -20,6 +23,7 @@ const getUserData = require("../../Api/admin/getUserData");
 const getWebsiteData = require("../../Api/admin/getWebsiteData");
 const sendLotteryPayment = require("../../Api/admin/sendLotteryPayment");
 const setLotteryWinners = require("../../Api/admin/setLotteryWinners");
+const updateAdmin = require("../../Api/admin/updateAdmin");
 const updateGamingNft = require("../../Api/admin/updateGamingNft");
 const updateLottery = require("../../Api/admin/updateLottery");
 const updateProgram = require("../../Api/admin/updateProgram");
@@ -28,7 +32,7 @@ const router = require("express").Router();
 
 // user
 // GET
-router.get("/admin/allUsers/:adminId/:adminEmail/:wallet", allUsers);
+router.get("/admin/allUsers", allUsers);
 
 // lottery
 // get lottery
@@ -108,5 +112,17 @@ router.get(
   "/admin/dashboardData/:adminId/:adminEmail/:wallet",
   getDashboardData
 );
+
+// get all admin users info
+router.get("/admin/getAdminInfo/:adminId/:adminEmail/:wallet", getAdminInfo);
+// create new admin
+router.post("/admin/createAdmin/:adminId/:adminEmail/:wallet", createAdmin);
+// delete admin
+router.delete(
+  "/admin/deleteAdmin/:adminId/:adminEmail/:wallet/:id",
+  deleteAdmin
+);
+// update admin
+router.put("/admin/updateAdmin/:adminId/:adminEmail/:wallet/:id", updateAdmin);
 
 module.exports = router;

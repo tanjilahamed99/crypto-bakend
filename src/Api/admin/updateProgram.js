@@ -5,7 +5,6 @@ const User = require("../../Modal/Users");
 const updateProgram = async (req, res, next) => {
   try {
     const { adminEmail, adminId, wallet, id } = req?.params;
-    console.log(id);
 
     if (!adminEmail || !adminId || !wallet) {
       return res.send({
@@ -25,12 +24,12 @@ const updateProgram = async (req, res, next) => {
       });
     }
 
-    const { price, quantity } = req.body;
+    const { price } = req.body;
 
-    if (!price || !quantity) {
+    if (!id) {
       return res.send({
         status: false,
-        message: "Need more data",
+        message: "NId Required",
       });
     }
 

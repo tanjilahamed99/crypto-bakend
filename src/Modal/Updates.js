@@ -9,6 +9,9 @@ const UpdatesSchema = new mongoose.Schema({
   image: {
     type: String,
   },
+  date: {
+    type: String,
+  },
 });
 
 UpdatesSchema.pre("save", async function (next) {

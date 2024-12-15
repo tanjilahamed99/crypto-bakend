@@ -3,6 +3,35 @@ const websiteSchema = new mongoose.Schema({
   websiteName: {
     type: String,
   },
+  banner: {
+    mainImage: {
+      type: String,
+    },
+    smFirstImg: {
+      type: String,
+    },
+    smSecantImg: {
+      type: String,
+    },
+    smThirdImg: {
+      type: String,
+    },
+    smForthImg: {
+      type: String,
+    },
+    bigFirstImg: {
+      type: String,
+    },
+    bigForthImg: {
+      type: String,
+    },
+    bigSecantImg: {
+      type: String,
+    },
+    bigThirdImg: {
+      type: String,
+    },
+  },
   websiteImage: {
     type: String,
   },
@@ -53,6 +82,35 @@ const websiteSchema = new mongoose.Schema({
   },
   totalDepositCharge: {
     type: Number,
+  },
+  totalRoyaltySalary: {
+    type: Array,
+  },
+  totalLotteryWithdrawal: {
+    type: Array,
+  },
+  royaltyTag: {
+    type: Array,
+  },
+  topEarners: {
+    type: Array,
+  },
+  certified: {
+    type: Array,
+  },
+  referImage: {
+    type: Array,
+  },
+  wallets: {
+    lottery: {
+      type: String,
+    },
+    proProgram: {
+      type: String,
+    },
+    royaltySalary: {
+      type: String,
+    },
   },
 
   // admin

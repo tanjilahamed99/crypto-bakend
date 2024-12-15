@@ -18,6 +18,9 @@ const gamingNftSchema = new mongoose.Schema({
   sell: {
     type: Number,
   },
+  users: {
+    type: Array,
+  },
 });
 
 gamingNftSchema.pre("save", async function (next) {

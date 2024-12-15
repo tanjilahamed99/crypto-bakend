@@ -10,6 +10,7 @@ const getAllUpdates = require("../../Api/user/getAllUpdates");
 const getMyRefers = require("../../Api/user/getMyRefers");
 const saveRefer = require("../../Api/user/saveRefer");
 const saveHistory = require("../../Api/user/saveHistory");
+const buyGamingNft = require("../../Api/user/buyGamingNft");
 
 const router = require("express").Router();
 
@@ -28,6 +29,8 @@ router.get("/myCartData/:userId/:Wallet", getMyCardData);
 
 // update lottery data after the lottery ticked buy
 router.put("/buyLottery/:id", updateLotteryById);
+// but gaming nft
+router.put("/buyGamingNft/:id", buyGamingNft);
 
 // buy Program
 router.put("/buyProgram/:id", buyProgram);

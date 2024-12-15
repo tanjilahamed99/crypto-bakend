@@ -15,6 +15,9 @@ const myCartSchema = new mongoose.Schema({
   royaltySalary: {
     type: Object,
   },
+  gamingNft: {
+    type: Array,
+  },
 });
 
 myCartSchema.pre("save", async function (next) {

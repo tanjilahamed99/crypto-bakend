@@ -18,6 +18,12 @@ const proProgramSchema = new mongoose.Schema({
   order: {
     type: Number,
   },
+  image: {
+    type: String,
+  },
+  title: {
+    type: String,
+  },
 });
 
 proProgramSchema.pre("save", async function (next) {
