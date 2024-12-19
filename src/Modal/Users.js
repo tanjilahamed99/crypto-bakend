@@ -33,6 +33,9 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
   },
+  block: {
+    type: Boolean,
+  },
 });
 
 userSchema.pre("save", async function (next) {

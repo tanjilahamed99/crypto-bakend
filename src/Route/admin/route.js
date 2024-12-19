@@ -4,11 +4,13 @@ const addLottery = require("../../Api/admin/AddLottery");
 const addProProgram = require("../../Api/admin/addProProgram");
 const addUpdates = require("../../Api/admin/addUpdates");
 const allUsers = require("../../Api/admin/allUser");
+const blockUser = require("../../Api/admin/blockUser");
 const createAdmin = require("../../Api/admin/createAdmin");
 const deleteAdmin = require("../../Api/admin/deleteAdmin");
 const deleteGamingNft = require("../../Api/admin/deleteGamingNft");
 const deleteLottery = require("../../Api/admin/deleteLottery");
 const deleteProProgram = require("../../Api/admin/deleteProProgram");
+const deleteUpdate = require("../../Api/admin/deleteUpdate");
 const drawLottery = require("../../Api/admin/DrawLottery");
 const getAdminInfo = require("../../Api/admin/getAdminInfo");
 const getAllGamingNft = require("../../Api/admin/getAllGamignNft");
@@ -124,5 +126,14 @@ router.delete(
 );
 // update admin
 router.put("/admin/updateAdmin/:adminId/:adminEmail/:wallet/:id", updateAdmin);
+
+// user related route
+router.put("/admin/blockUser/:adminId/:adminEmail/:wallet/:id", blockUser);
+
+// delete update
+router.delete(
+  "/admin/deleteUpdate/:adminId/:adminEmail/:wallet/:id",
+  deleteUpdate
+);
 
 module.exports = router;
