@@ -11,12 +11,17 @@ const getMyRefers = require("../../Api/user/getMyRefers");
 const saveRefer = require("../../Api/user/saveRefer");
 const saveHistory = require("../../Api/user/saveHistory");
 const buyGamingNft = require("../../Api/user/buyGamingNft");
+const updateUserInfo = require("../../Api/user/updateUserInfo");
+const checkUser = require("../../Api/user/checkUser");
 
 const router = require("express").Router();
 
+// update Users Info
+router.put("/updateUserInfo/:userId/:wallet", updateUserInfo);
+
 // GET
 router.post("/register", registerUser);
-
+router.get("/userCheck/:wallet", checkUser);
 router.post("/logInUser", loginUser);
 
 router.get("/user/data", getUserData);

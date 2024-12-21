@@ -56,6 +56,9 @@ const websiteSchema = new mongoose.Schema({
   twitter: {
     type: String,
   },
+  support: {
+    type: String,
+  },
   faq: [
     {
       question: {
@@ -110,6 +113,36 @@ const websiteSchema = new mongoose.Schema({
     },
     royaltySalary: {
       type: String,
+    },
+  },
+  totalRegisterFee: {
+    type: Array,
+  },
+  register: {
+    wallet: {
+      type: String,
+    },
+    fee: {
+      type: Number,
+    },
+    ruleOne: {
+      type: String,
+      default:
+        "Install a BSC chain(BEP20) wallet on your smartphone or PC.[Token Pocket, Metamask, Trust Wallet]",
+    },
+    ruleTwo: {
+      type: String,
+      default: "Fill your Wallet with at least 5 USDT & 0.003 BNB.",
+    },
+    ruleThree: {
+      type: String,
+      default:
+        "Directly Paste Your Upline link or Directly Click on Registration Button from Website & Follow our steps.",
+    },
+    ruleFour: {
+      type: String,
+      default:
+        "You have no Upline, then copy & paste in Browser:- https://www.meta-pro.space/en/register?ref=9421052696",
     },
   },
 

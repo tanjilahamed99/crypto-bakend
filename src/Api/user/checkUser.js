@@ -1,37 +1,30 @@
 const User = require("../../Modal/Users");
 
-const registerUser = async (req, res, next) => {
+const checkUser = async (req, res, next) => {
   try {
-    if (!req?.body?.wallet) {
+    const { wallet } = req.params;
+    if (!wallet) {
       return res.send({
         status: false,
         message: "you are not connect to wallet",
       });
     }
 
-    const find = await User?.findOne({ wallet: req?.body?.wallet });
+    const find = await User?.findOne({ wallet });
 
     if (find) {
       return res.send({
         status: true,
         message: "Already register this account",
+        created: true,
+      });
+    } else {
+      return res.send({
+        status: false,
+        message: "Not Exist",
         created: false,
       });
     }
-
-    const result = await User?.create(req?.body);
-    if (!result) {
-      return res.send({
-        status: false,
-        message: "something error there",
-      });
-    }
-
-    res?.send({
-      status: true,
-      user: result,
-      create: true,
-    });
   } catch (err) {
     console.log(err);
     res.send({
@@ -41,4 +34,4 @@ const registerUser = async (req, res, next) => {
   }
 };
 
-module.exports = registerUser;
+module.exports = checkUser;
