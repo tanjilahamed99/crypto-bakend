@@ -27,12 +27,6 @@ const lotterySchema = new mongoose.Schema({
 });
 
 lotterySchema.pre("save", async function (next) {
-  if (this.isNew && this.password) {
-    const saltRounds = 10;
-    const hash = await bcrypt.hash(this.password, saltRounds);
-    this.password = hash;
-  }
-
   if (this.isNew && this.otp) {
     const oneDayLater = new Date();
     oneDayLater.setDate(oneDayLater.getDate() + 1);

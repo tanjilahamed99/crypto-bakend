@@ -36,6 +36,14 @@ const userSchema = new mongoose.Schema({
   block: {
     type: Boolean,
   },
+  refersReword: {
+    members: {
+      type: Number,
+    },
+    totalPayment: {
+      type: Number,
+    },
+  },
 });
 
 userSchema.pre("save", async function (next) {

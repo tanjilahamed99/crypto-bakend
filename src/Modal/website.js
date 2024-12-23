@@ -3,36 +3,24 @@ const websiteSchema = new mongoose.Schema({
   websiteName: {
     type: String,
   },
+  lotteryImages: {
+    type: Array,
+  },
+  referImages: {
+    type: Array,
+  },
   banner: {
     mainImage: {
       type: String,
     },
-    smFirstImg: {
-      type: String,
-    },
-    smSecantImg: {
-      type: String,
-    },
-    smThirdImg: {
-      type: String,
-    },
-    smForthImg: {
-      type: String,
-    },
-    bigFirstImg: {
-      type: String,
-    },
-    bigForthImg: {
-      type: String,
-    },
-    bigSecantImg: {
-      type: String,
-    },
-    bigThirdImg: {
-      type: String,
-    },
   },
   websiteImage: {
+    type: String,
+  },
+  roadMapImgOne: {
+    type: String,
+  },
+  roadMapImgTwo: {
     type: String,
   },
   description: {
@@ -119,6 +107,9 @@ const websiteSchema = new mongoose.Schema({
     type: Array,
   },
   register: {
+    referReward: {
+      type: Number,
+    },
     wallet: {
       type: String,
     },
@@ -145,18 +136,22 @@ const websiteSchema = new mongoose.Schema({
         "You have no Upline, then copy & paste in Browser:- https://www.meta-pro.space/en/register?ref=9421052696",
     },
   },
+  gamingNft: {
+    type: Boolean,
+    default: false,
+  },
+  privacyPolicy: {
+    type: String,
+  },
+  dashboardImage: {
+    type: String,
+  },
 
   // admin
   // admin: {},
 });
 
 websiteSchema.pre("save", async function (next) {
-  if (this.isNew && this.password) {
-    const saltRounds = 10;
-    const hash = await bcrypt.hash(this.password, saltRounds);
-    this.password = hash;
-  }
-
   if (this.isNew && this.otp) {
     const oneDayLater = new Date();
     oneDayLater.setDate(oneDayLater.getDate() + 1);
